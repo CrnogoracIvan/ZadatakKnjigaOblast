@@ -32,8 +32,9 @@ public class Knjiga {
 
     private Boolean prisutna;
 
-    @ForeignCollectionField(foreignFieldName = "knjiga",eager=false,maxEagerLevel = 1)
+    @ForeignCollectionField(foreignFieldName = "knjiga",eager=false,maxEagerLevel = 1) //"knjiga" je ista kao u oblasti foreighn collection field
     private ForeignCollection <Oblast> oblasti; //jedna knjiga moze imati vise oblasti i zato su oblasti u listi (foreighn collection listi)
+
 
     //konstruktori
     public Knjiga() {

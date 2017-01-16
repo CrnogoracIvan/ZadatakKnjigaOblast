@@ -3,6 +3,8 @@ package zadaci;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
+import model.Knjiga;
+import model.Oblast;
 
 import java.io.IOException;
 
@@ -16,18 +18,15 @@ public class Zadatak1KreiranjeTabele {
         try {
             // create our data-source for the database
             connectionSource = new JdbcConnectionSource("jdbc:sqlite:knjigaOblast.db");
-//
-//            TableUtils.dropTable(connectionSource, PorucenoJelo.class,true);
-//            TableUtils.dropTable(connectionSource, Jelo.class,true);
-//            TableUtils.dropTable(connectionSource, Meni.class,true);
-//            TableUtils.dropTable(connectionSource, AdresaStanovanja.class,true);
-//            TableUtils.dropTable(connectionSource, Radnik.class,true);
-//
-//            TableUtils.createTable(connectionSource,PorucenoJelo.class);
-//            TableUtils.createTable(connectionSource,Jelo.class);
-//            TableUtils.createTable(connectionSource,Meni.class);
-//            TableUtils.createTable(connectionSource,Radnik.class);
-//            TableUtils.createTable(connectionSource,AdresaStanovanja.class);
+//brisanje tabele
+
+            TableUtils.dropTable(connectionSource, Oblast.class,true);
+            TableUtils.dropTable(connectionSource, Knjiga.class,true);
+
+//kreiranje tabele
+            TableUtils.createTable(connectionSource,Knjiga.class);
+            TableUtils.createTable(connectionSource,Oblast.class);
+
         }catch (Exception e) {
             e.printStackTrace();
         }finally {
