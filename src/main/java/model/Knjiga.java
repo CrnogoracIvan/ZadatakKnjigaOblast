@@ -14,8 +14,8 @@ import java.util.Date;
 public class Knjiga {
 
     public static final String POLJE_NASLOV="naslov";
-    public static final String POLJE_BROJ_STRANA="broj strana";
-    public static final String POLJE_DATUM_IZDRAVANJA="datum izdavanja";
+    public static final String POLJE_BROJ_STRANA="broj_strana";
+    public static final String POLJE_DATUM_IZDRAVANJA="datum_izdavanja";
 
 
     @DatabaseField(generatedId = true)
@@ -33,7 +33,7 @@ public class Knjiga {
     private Boolean prisutna;
 
     @ForeignCollectionField(foreignFieldName = "knjiga",eager=false,maxEagerLevel = 1)
-    private ForeignCollection <Oblast> oblasti;
+    private ForeignCollection <Oblast> oblasti; //jedna knjiga moze imati vise oblasti i zato su oblasti u listi (foreighn collection listi)
 
     //konstruktori
     public Knjiga() {
